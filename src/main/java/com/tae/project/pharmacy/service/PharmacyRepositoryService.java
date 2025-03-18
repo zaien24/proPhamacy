@@ -34,6 +34,13 @@ public class PharmacyRepositoryService {
         });
     }
 
+    // read only test
+    @Transactional(readOnly = true)
+    public void startReadOnlyMethod(Long id) {
+        pharmacyRepository.findById(id).ifPresent(pharmacy ->
+                pharmacy.changePharmacyAddress("서울 특별시 광진구"));
+    }
+
     @Transactional
     public void updateAddress(Long id, String address) {
         Pharmacy entity = pharmacyRepository.findById(id).orElse(null);
