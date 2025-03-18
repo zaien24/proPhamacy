@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class KakaoAPiResponseDto {
+public class KakaoApiResponseDto {
 
     @JsonProperty("meta")
     private MetaDto metaDto;
