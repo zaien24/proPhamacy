@@ -1,7 +1,7 @@
-package com.example.demo.util;
+package com.tae.project.pharmacy.util;
 
-import com.example.demo.pharmacy.dto.PharmacyDto;
 import com.opencsv.CSVReader;
+import com.tae.project.pharmacy.dto.PharmacyDto;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileReader;
