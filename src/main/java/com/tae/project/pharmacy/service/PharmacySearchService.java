@@ -1,5 +1,6 @@
 package com.tae.project.pharmacy.service;
 
+import com.tae.project.pharmacy.cache.PharmacyRedisTemplateService;
 import com.tae.project.pharmacy.dto.PharmacyDto;
 import com.tae.project.pharmacy.entity.Pharmacy;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +16,13 @@ import java.util.stream.Collectors;
 public class PharmacySearchService {
 
     private final PharmacyRepositoryService pharmacyRepositoryService;
+    private final PharmacyRedisTemplateService pharmacyRedisTemplateService;
 
     public List<PharmacyDto> searchPharmacyDtoList() {
 
         // redis
+        List<PharmacyDto> pharmacyDtoList = pharmacyRedisTemplateService.findAll();
+        if(!pharmacyDtoList.isEmpty()) return pharmacyDtoList;
 
         // db
 //        return pharmacyRepositoryService.findAll() // entity -> dto 변환
